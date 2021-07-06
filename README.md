@@ -1,64 +1,63 @@
-# Судоку
+# Sudoku
 
-## Введение
+## Introduction
 
-![Решение анимация](readme-assets/sequence.gif)
+![Sudoku solver animation](readme-assets/sequence.gif)
 
-*Рисунок 1*. Анимация решения.
+*Figure 1*. Animation of the Sudoku solver.
 
-Судоку – логическая комбинаторная головоломка, которую необходимо решать при помощи чисел.  Она представляет собой решетку из клеток 3×3 и содержит цифры от 1 до 9.
+Sudoku is a logic-based, combinatorial number-placement puzzle. It is a 3 × 3 grid of cells and contains numbers from 1 to 9.
 
-Как правило, судоку частично предоставляет решение, которое выражается в виде уже заполненных числами клеток. Чтобы решить головоломку, нужно заполнить пустые квадраты так, как это показано на Рисунке 1.
+As a rule, Sudoku provides a partial solution, which is expressed in the form of cells already filled with numbers. To solve the puzzle, you need to fill in the empty squares as shown in Figure 1.
 
-К концу этой задачи у вас будет полностью функционирующий «решатель» Судоку, который запускается из командной строки. Вам будут представлены 15 нерешенных головоломок Судоку. Пазлы можно найти в файле `sudoku-puzzles.txt`.
+By the end of this task, you will have a fully functioning Sudoku "solver" that runs from the command line. You will be presented with 15 unsolved Sudoku puzzles. Puzzles can be found in the  `sudoku-puzzles.txt` file.
 
-* Пять головоломок могут быть решены с помощью базовой логики.
-* Пять требуют немного более продвинутой логики.
-* Пять требуют от вашего решателя умения угадывать и перерешивать, если зашёл в тупик.
+* Five puzzles can be solved using basic logic.
+* Five require a little more advanced logic.
+* Five require your solver to be able to guess and reconsider when stuck.
 
-Полное решение разрешит все 15 головоломок.
+The complete solution will solve all 15 puzzles.
 
-### Ограничения
+### Limitations
 
-Никаких глобальных переменных -  вы будете использовать только локальные переменные.
-Для этого вы будете писать функции, которые принимают параметры в качестве входных данных и возвращают посчитанные значения. Вы должны написать большое количество функций и использовать их вместе для создания своего «судоку-решателя».
+No global variables - you will only use local variables. To do this, you will write functions that take parameters as input and return the calculated values. You have to write a large number of functions and use them together to create your own Sudoku solver.
 
+## Testing
 
-## Тестирование
+Good news: you will create lots of small methods and small methods are easier to test!
 
-Хорошие новости: вы создадите много небольших методов, а небольшие методы легче тестировать!
-
-Количество тестов, которые Вы пишете, полностью зависит от Вас. Тестирование выполняется исключительно для Вас и поможет Вам писать код. Вы должны находить баланс между тестированием и необходимостью писать код. Помните, что тесты могут помочь вам быстрее достичь нужных результатов.
-
+The number of tests you write is entirely up to you. Testing is done exclusively for you and will help you write the code. You have to find a balance between testing and having to write code. Remember, tests can help you get the results you want faster. 
 
 ## Releases
 
-### Pre-release: Понимание и моделирование Судоку
+### Pre-release: Understanding and modeling Sudoku
 
-Компьютерная программа, которая решает Судоку, имитирует человека, играющего в нее. Понимание того, как человек играет в игру, является ключевым. Что делает человек при решении Судоку?
+The computer program that solves Sudoku simulates a person playing it. Understanding how a person plays a game is key. What does a person do when solving Sudoku?
 
-Давайте сыграем в настоящую головоломку Судоку, обращая внимание на то, как мы приближаемся к решению поставленной задачи.
+Let's solve a real Sudoku puzzle, paying attention to how we get closer to solving the problem.
 
-- Какие стратегии мы принимаем и почему?
-- Как мы выбираем, с чего начать?
-- Как мы узнаем, когда действительно следует поставить число в клетку?
-- Что мы делаем, когда мы окончательно не знаем, как заполнить остальные клетки?
+- What strategies are we using and why?
+- How do we choose where to start?
+- How do we know when to actually put a number in the box?
+- What do we do when we don't know how to fill in the rest of the cells?
 
-Размышляя о нашей человеческой стратегии, важно понимать, что иногда стратегии, которые работают для людей, будет трудно реализовать на компьютере. Однако верно и обратное: стратегии компьютера могут быть не всегда удобны для людей, потому что нам придется писать слишком много текста, использовать слишком много листов бумаги или помнить много информации, которую в состоянии запомнить компьютер, но не человек.
+When thinking about our human strategy, it's important to understand that sometimes strategies that work for humans will be difficult to implement on a computer. However, the opposite is also true: computer strategies may not always be convenient for humans because we have to write too much text, use too many sheets of paper, or remember a lot of information that a computer can remember but not a person.
 
-Прежде чем вы начнете писать код, разработайте и напишите решение при помощи псевдокода для вашего «решателя».
+Before you start coding, design and write a pseudocode solution for your "solver".
 
-### Release 0: Основная логика
+### Release 0: Main logic
 
-Первые пять головоломок в файле `sudoku-puzzles.txt` могут быть решены с помощью базовой логики (многие клетки в начале игры имеют только одно возможное значение). Для этого релиза надо, чтобы программа могла решить первые пять головоломок.
+The first five puzzles in the `sudoku-puzzles.txt` file can be solved using basic logic (many cells at the beginning of the game have only one possible value). This release requires the program to be able to solve the first five puzzles. 
 
-- Создайте функции, которые будут работать вместе для решения головоломок. Несколько функций уже есть для Вас в `sudoku.js`.
-- Чтобы запустить «решатель», используйте `runner.js`, который использует функции из `sudoku.js`. Убедитесь, что Вы прочитали комментарии и код в `runner.js` и `sudoku.js`.
-- Функция `solve` в `sudoku.js` примет строку `String`, представляющую собой чистую доску Судоку. Неразрешенные квадраты отмечены символом ` - `. Решенные квадраты содержат в себе цифру от «1» до «9». Например:
-  `"1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89---"`
+- Create functions that work together to solve puzzles. Several functions are already in `sudoku.js`.
 
-- Для этого релиза Ваша программа должна «сдаваться», если ей не удается решить задачу.
-- Обязательно напишите метод `prettyBoard`, который берет доску, записанную в строчку и возвращает отформатированный вариант, более привычный для нашего визуального восприятия. Например:
+- To run the "solver" use `runner.js`, which uses functions from `sudoku.js`. Make sure you read the comments and code in `runner.js` and `sudoku.js`.
+
+The function `solve` in `sudoku.js` will accept a string `String` representing a blank Sudoku board. Unresolved squares are marked with - symbol. Solved squares contain a number from "1" to "9". For example:   `"1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89---"`
+
+- For this release, your program must "give up" if it fails to solve the problem.
+
+- Be sure to write a `prettyBoard` method that takes the board written in a string and returns a formatted version that is more familiar to our visual perception. For example:
 
 ```
 1 - 5 8 - 2 - - -
@@ -71,16 +70,16 @@
 4 3 - - 2 - 5 - 1
 6 - - 3 - 8 9 - -
 ```
-### Release 1: Более продвинутая логика
+### Release 1: More advanced logic
 
-Головоломки 6-10 могут быть решены с использованием обычной логики, но при этом требуют больше, чем просто последовательный перебор клеток, которые могут иметь только одно возможное значение. Требуется улучшить механизм, чтобы программа могла решать эти новые головоломки.
+Puzzles 6-10 can be solved using general logic, but they require more than just iterating over the cells, which can have only one possible value. The mechanism needs to be improved so that the program can solve these new puzzles.
 
-*Примечание:* Ваш код все равно должен «сдаваться», если он не справляется с головоломкой.
+Note: Your code should still "give up" if it fails at solving the puzzle.
 
-### Release 2: «Умное» угадывание
+### Release 2: "Smart" guessing
 
-Головоломки 11-15 можно решить, делая обоснованные предположения о значениях неразрешенных квадратов, а затем пытаясь решить головоломки на основе этих уже угаданных значений. Угадывание должно начинаться после того, как Ваш основной код пройдет по всему полю Судоку и найдет все очевидные значения, либо сделает предположения о возможных значениях. Другими словами, подберите значения в как можно большем количестве клеток с помощью логики, а затем начинайте угадывать. Многие считают, что тут может сильно помочь рекурсия.
+Puzzles 11-15 can be solved by making educated guesses about the values ​​of the unresolved squares and then trying to solve the puzzles based on those already guessed values. Guessing should start after your main code has traversed the entire Sudoku field and found all the obvious values or made guesses about possible values. In other words, use logic to match the values ​​in as many cells as possible and then start guessing. Many people think that recursion can be of great help here.
 
-## Выводы
+## Conclusion
 
-Написание решения Судоку заключает в себе множество проблем: определение логики, связанной с самой игрой, перекладывание этой логики на код, манипулирование структурами данных и т.д. Это обеспечивает хорошую всеобъемлющую задачу, суммируя навыки, которые мы развили до этого момента в Elbrus Bootcamp.
+Writing a Sudoku solution involves many problems: defining the logic associated with the game itself, transferring this logic to code, manipulating data structures, etc. This provides a good overarching challenge, summarizing the skills we've developed up to this point in Elbrus Bootcamp.
