@@ -20,6 +20,9 @@ function isSolved(board) {
  * Подумай, как симпатичнее сформировать эту строку.
  */
 function prettyBoard(board) {
+  board.flat();
+  let result = '';
+  result += board.join | ('')
 
 }
 
