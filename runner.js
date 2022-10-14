@@ -11,3 +11,4 @@ fs.readFile(
   'utf-8',
   readAndSolve,
 );
+
