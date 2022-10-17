@@ -26,7 +26,7 @@ const board = stringToArray(boardString);
     }
     return 0;// возвращаем 0, если пустых ячеек больше нет 
   }
-  // Праверка на правильность написания цифры в пустую ячейку
+  // Проверка на правильность написания цифры в пустую ячейку
   function validator(num, posPusto, board) {
     const [row, col] = posPusto;
 
