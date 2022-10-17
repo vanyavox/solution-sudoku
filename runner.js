@@ -12,3 +12,6 @@ fs.readFile(
   readAndSolve,
 );
 
+module.exports = {
+  readAndSolve,
+}
