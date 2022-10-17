@@ -11,3 +11,7 @@ fs.readFile(
   'utf-8',
   readAndSolve,
 );
+
+module.exports = {
+  readAndSolve,
+}
