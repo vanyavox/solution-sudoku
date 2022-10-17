@@ -98,6 +98,7 @@ function isSolved(board) {
  * Подумай, как симпатичнее сформировать эту строку.
  */
 function prettyBoard(board) {
+
 // const fs = require('fs');
 // const fileName = './result.txt';
 // // Удаление прошлого результата
@@ -111,6 +112,7 @@ function prettyBoard(board) {
 //       fs.appendFileSync(fileName, `${board[i][j]}\n`);
 //     }
 //   }
+
 
 console.table(board);
   return board
