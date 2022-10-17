@@ -113,10 +113,12 @@ function prettyBoard(board) {
 //   }
 
 console.table(board);
-  // return board
+  return board
 }
 
 // Экспортировать функции для использования в другом файле (например, readAndSolve.js).
+
+
 module.exports = {
   solve,
   isSolved,
