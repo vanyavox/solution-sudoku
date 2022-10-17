@@ -7,6 +7,11 @@ let result = 0;
       result = result + Number(board[i][j]);
     }
   }
+  if(result === 405) {
+    return true;
+  } else{
+    return false;
+  }
 }
 
 
